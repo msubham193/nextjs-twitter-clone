@@ -2,6 +2,7 @@ import React from "react";
 import { SparklesIcon } from "@heroicons/react/outline";
 import { AnimatePresence, motion } from "framer-motion";
 import Input from "./Input";
+import Post from "./Post";
 const Feed = () => {
   return (
     <div className="xl:ml-[370px] border-l border-r border-gray-200  xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl">
@@ -16,7 +17,7 @@ const Feed = () => {
  
 
 
-
+      <Post/>
 
     </div>
   );
