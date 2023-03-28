@@ -16,7 +16,7 @@ import { HomeIcon } from "@heroicons/react/solid";
 
 const Sidebar = () => {
   return (
-    <div className="hideen sm:flex flex-col p-2 xl:items-start fixed">
+    <div className="hideen sm:flex flex-col p-2 xl:items-start fixed z-50 bg-white h-screen">
       <div className="hoverEffect p-0 hover:bg-blue-100 xl:px-1">
         <Image
           width="50"
