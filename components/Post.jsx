@@ -12,7 +12,7 @@ import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 // import Moment from "react-moment";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-const Post = () => {
+const Post = ({post}) => {
   const [likes, setLikes] = useState([]);
   const [comments, setComments] = useState([]);
   const router = useRouter();
@@ -34,10 +34,10 @@ const Post = () => {
           {/* post user info */}
           <div className="flex items-center space-x-1 whitespace-nowrap">
             <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
-               Subham Mishra
+               {post?.name}
             </h4>
             <span className="text-sm sm:text-[15px]">
-              @msubham193
+              {post?.username}
             </span>
             <span className="text-sm sm:text-[15px] hover:underline">
         
@@ -62,7 +62,7 @@ const Post = () => {
         <img
           onClick={() => router.push(`/posts/${id}`)}
           className="rounded-2xl mr-2"
-          src="https://images.unsplash.com/photo-1679597454493-d86b77bdf2fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60"
+          src={post?.img}
           alt=""
         />
 
