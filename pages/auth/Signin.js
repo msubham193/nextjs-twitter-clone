@@ -15,18 +15,18 @@ const Signin = () => {
       await signInWithPopup(auth, provider);
       const user = auth.currentUser.providerData[0];
       console.log(user);
-      //   const docRef = doc(db, "users", user.uid);
-      //   const docSnap = await getDoc(docRef);
-      //   if (!docSnap.exists()) {
-      //     await setDoc(docRef, {
-      //       name: user.displayName,
-      //       email: user.email,
-      //       username: user.displayName.split(" ").join("").toLocaleLowerCase(),
-      //       userImg: user.photoURL,
-      //       uid: user.uid,
-      //       timestamp: serverTimestamp(),
-      //     });
-      //   }
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (!docSnap.exists()) {
+          await setDoc(docRef, {
+            name: user.displayName,
+            email: user.email,
+            username: user.displayName.split(" ").join("").toLocaleLowerCase(),
+            userImg: user.photoURL,
+            uid: user.uid,
+            timestamp: serverTimestamp(),
+          });
+        }
       router.push("/");
     } catch (error) {
       console.log(error);

@@ -12,18 +12,21 @@ import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 // import Moment from "react-moment";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-const Post = ({post}) => {
+import { useRecoilState } from "recoil";
+import { userState } from "../atom/userAtom";
+const Post = ({ post }) => {
   const [likes, setLikes] = useState([]);
   const [comments, setComments] = useState([]);
   const router = useRouter();
+  const [currentUser, setCurrentUser] = useRecoilState(userState);
 
-  const deletePost = ()=>{}
+  const deletePost = () => {};
   return (
     <div className="flex p-3 cursor-pointer border-b border-gray-200">
       {/* user image */}
       <img
         className="h-11 w-11 rounded-full mr-4"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLe5PABjXc17cjIMOibECLM7ppDwMmiDg6Dw&usqp=CAU"
+        src={post?.data()?.userImg}
         alt="user-img"
       />
       {/* right side */}
@@ -34,14 +37,12 @@ const Post = ({post}) => {
           {/* post user info */}
           <div className="flex items-center space-x-1 whitespace-nowrap">
             <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
-               {post?.name}
+              {post?.data().name}
             </h4>
             <span className="text-sm sm:text-[15px]">
-              {post?.username}
+              {post?.data().username}
             </span>
-            <span className="text-sm sm:text-[15px] hover:underline">
-        
-            </span>
+            <span className="text-sm sm:text-[15px] hover:underline"></span>
           </div>
 
           {/* dot icon */}
@@ -54,15 +55,15 @@ const Post = ({post}) => {
           onClick={() => router.push(`/posts/${id}`)}
           className="text-gray-800 text-[15px sm:text-[16px] mb-2"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, ut.
+          {post?.data()?.text}
         </p>
 
         {/* post image */}
 
         <img
           onClick={() => router.push(`/posts/${id}`)}
-          className="rounded-2xl mr-2"
-          src={post?.img}
+          className="rounded-2xl mr-2 sm:h-[300px] h-[270px] w-full object-fill"
+          src={post?.data()?.image}
           alt=""
         />
 
@@ -71,22 +72,22 @@ const Post = ({post}) => {
         <div className="flex justify-between text-gray-500 p-2">
           <div className="flex items-center select-none">
             <ChatIcon
-            //   onClick={() => {
-            //     if (!currentUser) {
-            //       // signIn();
-            //       router.push("/auth/signin");
-            //     } else {
-            //       setPostId(id);
-            //       setOpen(!open);
-            //     }
-            //   }}
+              //   onClick={() => {
+              //     if (!currentUser) {
+              //       // signIn();
+              //       router.push("/auth/signin");
+              //     } else {
+              //       setPostId(id);
+              //       setOpen(!open);
+              //     }
+              //   }}
               className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100"
             />
             {comments.length > 0 && (
               <span className="text-sm">{comments.length}</span>
             )}
           </div>
-          {true&& (
+          {currentUser?.uid === post?.data()?.id && (
             <TrashIcon
               onClick={deletePost}
               className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100"
@@ -105,9 +106,7 @@ const Post = ({post}) => {
               />
             )}
             {likes.length > 0 && (
-              <span
-                className={`${true&& "text-red-600"} text-sm select-none`}
-              >
+              <span className={`${true && "text-red-600"} text-sm select-none`}>
                 {" "}
                 {likes.length}
               </span>
