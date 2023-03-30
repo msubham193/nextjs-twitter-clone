@@ -8,7 +8,8 @@
 
 @layer base {
     body {
-      @apply font-poppins
+      @apply font-poppins transition-all duration-300
+
     }
   }
 
