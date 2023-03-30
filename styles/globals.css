@@ -1,8 +1,16 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Righteous&family=Secular+One&family=Shantell+Sans:wght@300;400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+
+@layer base {
+    body {
+      @apply font-poppins
+    }
+  }
 
 @layer components{
     .hoverEffect{
@@ -10,3 +18,8 @@
     }
 
 }
+
+
+
+
+
