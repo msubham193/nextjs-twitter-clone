@@ -118,7 +118,7 @@ const Post = ({ post, id }) => {
 
         <img
           onClick={() => router.push(`/posts/${id}`)}
-          className="rounded-2xl mr-2 sm:h-[300px] h-[270px] w-full object-fill"
+          className="rounded-2xl mr-2 sm:h-[400px] h-[310px] w-full object-fill"
           src={post?.data()?.image}
           alt=""
         />
