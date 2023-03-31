@@ -131,7 +131,7 @@ const Post = ({ post, id }) => {
                 onClick={() => {
                   if (!currentUser) {
                     // signIn();
-                    router.push("/auth/signin");
+                    router.push("/auth/Signin");
                   } else {
                     setPostId(id);
                     setOpen(!open);
