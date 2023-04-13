@@ -52,12 +52,7 @@ const Sidebar = () => {
       <div className="sm:flex hidden">
         <div className="hideen sm:flex flex-col p-2 xl:items-start fixed z-50 bg-white h-screen">
           <div className="hoverEffect p-0 hover:bg-blue-100 xl:px-1">
-            <Image
-              width="50"
-              height="50"
-              alt="yyy"
-              src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
-            ></Image>
+            <h1 className="font-extrabold text-xl text-blue-800 p-3">Socio.</h1>
           </div>
           <div className="mt-4 mb-2.5 xl:items-start">
             <SidebarMenuItem text="Home" Icon={HomeIcon} active />
@@ -76,8 +71,8 @@ const Sidebar = () => {
 
           {currentUser ? (
             <>
-              <button className="bg-blue-400 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">
-                Tweet
+              <button className="bg-blue-800 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">
+                Post
               </button>
 
               {/* Mini-Profile */}

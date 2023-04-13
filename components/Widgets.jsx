@@ -15,7 +15,7 @@ const Widgets = ({ newsResults, randomUsersResults }) => {
           <input
             className="absolute inset-0 h-full rounded-full pl-11 border-gray-500 text-gray-700 focus:shadow-lg focus:bg-white bg-gray-100 "
             type="text"
-            placeholder="Search Twitter"
+            placeholder="Search Socio."
           />
         </div>
       </div>
